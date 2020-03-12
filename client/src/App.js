@@ -45,6 +45,7 @@ function App() {
   const updateBalance = async () => {
     const balance = await web3.eth.getBalance(contract.options.address);
     setBalance(balance);
+    console.log(balance);
   };
 
   const updateCurrentTransfer = async () => {
@@ -67,6 +68,8 @@ function App() {
     e.preventDefault();
     const amount = e.target.elements[0].value;
     const to = e.target.elements[1].value;
+    console.log(amount, to);
+    console.log(contract.methods);
 
     await contract.methods
       .createTransfer(amount, to)
